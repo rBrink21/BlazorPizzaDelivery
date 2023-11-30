@@ -1,0 +1,42 @@
+@page "/pizzadel"
+@rendermode InteractiveServer
+
+
+<h3>PizzaDelivery</h3>
+
+<label>
+    <input type="checkbox" @bind='pizza.PizzaTopping.Bacon'>
+    Bacon
+</label>
+
+<label>
+    <input type="checkbox" @bind='pizza.PizzaTopping.MoreBacon'>
+    More Bacon
+</label>
+
+<label>
+    <input type="checkbox" @bind='pizza.PizzaTopping.ExtraExtraBacon'>
+    ExtraExtra Bacon
+</label>
+
+<p>Topping Selection Checker</p>
+<ul>
+    @if (pizza.PizzaTopping.Bacon)
+    {
+        <li>Bacon</li>
+    }
+    @if (pizza.PizzaTopping.MoreBacon)
+    {
+        <li>More Bacon</li>
+    }
+    @if (pizza.PizzaTopping.ExtraExtraBacon)
+    {
+        <li>ExtraExtra Bacon</li>
+    }
+</ul>
+
+<p>Total Price: @pizza.getFinalPrice()</p>
+
+@code {
+    Pizza pizza = new Pizza();
+}
